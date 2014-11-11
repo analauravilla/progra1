@@ -1,0 +1,73 @@
+program project1;
+
+{$mode objfpc}{$H+}
+
+uses
+  {$IFDEF UNIX}{$IFDEF UseCThreads}
+  cthreads,
+  {$ENDIF}{$ENDIF}
+  Classes, Unit1;
+   var
+     n:Practico1;
+     a:integer;
+     v,u:integer;
+begin
+
+  n.create();
+  writeln('Bienvenido a la resolucion del practico 1 de Programacion I.-');
+  writeln('Para seleccionar la pregunta escriba el numero de la misma');
+  writeln('Opciones :');
+  readln(a);
+  if a = 1 then
+  begin
+    n.pregunta1();
+
+  end;
+  if a = 2 then
+  begin
+    readln(v);
+    n.pregunta2(v);
+
+  end;
+  if a = 3 then
+  begin
+    readln(v);
+    writeln(n.pregunta3(v));
+
+  end;
+  if a = 4 then
+  begin
+    readln(v);
+    n.pregunta4(v);
+
+  end;
+  if a = 5 then
+  begin
+    readln(v);
+    n.pregunta5(v);
+
+  end;
+  if a = 6 then
+  begin
+    readln(v);
+    readln(u);
+    writeln(n.pregunta6(v,u));
+
+  end;
+  if a = 7 then
+  begin
+    readln(v);
+    readln(u);
+    writeln(n.pregunta7(v,u));
+
+  end;
+  if a = 10 then
+  begin
+    readln(v);
+    readln(u);
+    writeln(n.pregunta10(v,u));
+
+  end;
+     readln();
+end.
+        
