@@ -1,0 +1,159 @@
+unit Unit1;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils;
+
+  type
+
+  { Practico1 }
+
+  Practico1 = class
+  private
+    valor:integer;
+
+    public
+      procedure pregunta1();
+      procedure pregunta2(num:integer);
+      function pregunta3(num:integer):integer;
+      procedure pregunta4(num:integer);
+      procedure pregunta5(num:integer);
+      function pregunta6(num:integer;num2:integer):integer;
+      function pregunta7(num:integer;num2:integer):integer;
+      function pregunta10(num:integer;num2:integer):integer;
+      end;
+implementation
+
+procedure Practico1.pregunta1;
+const y=8;
+  var i:integer;
+begin
+i:=1;
+     while i<=y do
+           begin
+               writeln(i);
+               i:=i+1;
+           end;
+end;
+procedure Practico1.pregunta2(num: integer);
+       var i:integer;
+begin
+i:=1;
+     while i<=num do
+           begin
+               writeln(i);
+               i:=i+1;
+           end;
+
+end;
+
+function Practico1.pregunta3(num: integer): integer;
+var j,i:integer;
+begin
+i:=1;
+j:=0;
+while i<=num do
+    begin
+        writeln(i);
+        j:=j+i;
+        i:=i+1;
+    end;
+result:=j;
+end;
+
+procedure Practico1.pregunta4(num: integer);
+var i:integer;
+  j:char;
+begin
+i:=0;
+while i<num do
+    begin
+       j:=char(65+i);
+       write(j);
+       i:=i+1;
+       end;
+
+
+
+end;
+
+procedure Practico1.pregunta5(num: integer);
+var j,i:integer;
+begin
+if num mod 2 = 0 then
+begin
+   j:=1;
+   i:=2;
+     while j<=num do
+           begin
+               writeln(i);
+               i:=i+2;
+               j:=j+1;
+           end;
+     end
+     else
+     j:=1;
+     i:=1;
+     while j<=num do
+           begin
+               writeln(i);
+               i:=i+2;
+               j:=j+1;
+           end;
+
+
+end;
+
+function Practico1.pregunta6(num: integer; num2: integer): integer;
+var
+i,suma:integer;
+begin
+   i:=1;
+   suma:=0;
+   while i<=num do
+         begin
+              suma:=suma+num2;
+              i:=i+1;
+         end;
+   result:=suma;
+end;
+
+function Practico1.pregunta7(num: integer; num2: integer): integer;
+var
+i,j:integer;
+begin
+   i:=1;
+   j:=num;
+   while j> num2 do
+         begin
+              j:=j-num2;
+              i:=i+1;
+         end;
+   result:=i;
+end;
+
+function Practico1.pregunta10(num: integer; num2: integer): integer;
+var
+i,mult:integer;
+begin
+   i:=1;
+   mult:=1;
+   while i<=num2 do
+         begin
+              mult:=mult*num;
+              i:=i+1;
+         end;
+   result:=mult;
+end;
+
+
+
+
+
+
+
+end.
+            
