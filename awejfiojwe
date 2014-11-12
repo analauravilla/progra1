@@ -1,0 +1,343 @@
+program project1;
+{$mode objfpc}{$H+}
+uses
+{$IFDEF UNIX}{$IFDEF UseCThreads}
+cthreads,
+{$ENDIF}{$ENDIF}
+Classes, Unit1;
+var
+n:Practico1;
+a:integer;
+v,u:integer;
+o:char;
+begin
+n.create();
+writeln('Bienvenido a la resolucion del practico 1 de Programacion I.-');
+writeln('Para seleccionar la pregunta escriba el numero de la misma');
+writeln('Opciones :');
+readln(a);
+if a = 1 then
+begin
+n.pregunta1();
+end;
+if a = 2 then
+begin
+readln(v);
+n.pregunta2(v);
+end;
+if a = 3 then
+begin
+readln(v);
+writeln(n.pregunta3(v));
+end;
+if a = 4 then
+begin
+readln(v);
+n.pregunta4(v);
+end;
+if a = 5 then
+begin
+readln(v);
+n.pregunta5(v);
+end;
+if a = 6 then
+begin
+readln(v);
+readln(u);
+writeln(n.pregunta6(v,u));
+end;
+if a = 7 then
+begin
+readln(v);
+readln(u);
+writeln(n.pregunta7(v,u));
+end;
+if a = 10 then
+begin
+readln(v);
+readln(u);
+writeln(n.pregunta10(v,u));
+end;
+if a = 16 then
+   begin
+readln(v);
+readln(o);
+readln(u);
+writeln(n.pregunta16(v,o,u));
+   end;
+
+if a = 18 then
+   begin
+   readln(v);
+
+   writeln(n.pregunta18(v));
+end;
+readln();
+end.
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+unit Unit1;
+{$mode objfpc}{$H+}
+interface
+uses
+Classes, SysUtils;
+type
+{ Practico1 }
+Practico1 = class
+private
+valor:integer;
+public
+procedure pregunta1();
+procedure pregunta2(num:integer);
+function pregunta3(num:integer):integer;
+procedure pregunta4(num:integer);
+procedure pregunta5(num:integer);
+function pregunta6(num:integer;num2:integer):integer;
+function pregunta7(num:integer;num2:integer):integer;
+function pregunta10(num:integer;num2:integer):integer;
+function pregunta16(num:integer;o:char;num2:integer):integer;
+function uniRom(num:integer):string;
+function decRom(num:integer):string;
+function centRom(num:integer):string;
+function milRom(num:integer):string;
+function pregunta18(num:integer):string;
+
+end;
+implementation
+procedure Practico1.pregunta1;
+const y=8;
+var i:integer;
+begin
+i:=1;
+while i<=y do
+begin
+writeln(i);
+i:=i+1;
+end;
+end;
+procedure Practico1.pregunta2(num: integer);
+var i:integer;
+begin
+i:=1;
+while i<=num do
+begin
+writeln(i);
+i:=i+1;
+end;
+end;
+function Practico1.pregunta3(num: integer): integer;
+var j,i:integer;
+begin
+i:=1;
+j:=0;
+while i<=num do
+begin
+writeln(i);
+j:=j+i;
+i:=i+1;
+end;
+result:=j;
+end;
+procedure Practico1.pregunta4(num: integer);
+var i:integer;
+j:char;
+begin
+i:=0;
+while i<num do
+begin
+j:=char(65+i);
+write(j);
+i:=i+1;
+end;
+end;
+procedure Practico1.pregunta5(num: integer);
+var j,i:integer;
+begin
+if num mod 2 = 0 then
+begin
+j:=1;
+i:=2;
+while j<=num do
+begin
+writeln(i);
+i:=i+2;
+j:=j+1;
+end;
+end
+else
+j:=1;
+i:=1;
+while j<=num do
+begin
+writeln(i);
+i:=i+2;
+j:=j+1;
+end;
+end;
+function Practico1.pregunta6(num: integer; num2: integer): integer;
+var
+i,suma:integer;
+begin
+i:=1;
+suma:=0;
+while i<=num do
+begin
+suma:=suma+num2;
+i:=i+1;
+end;
+result:=suma;
+end;
+function Practico1.pregunta7(num: integer; num2: integer): integer;
+var
+i,j:integer;
+begin
+i:=1;
+j:=num;
+while j> num2 do
+begin
+j:=j-num2;
+i:=i+1;
+end;
+result:=i;
+end;
+function Practico1.pregunta10(num: integer; num2: integer): integer;
+var
+i,mult:integer;
+begin
+i:=1;
+mult:=1;
+while i<=num2 do
+begin
+mult:=mult*num;
+i:=i+1;
+end;
+result:=mult;
+end;
+
+function Practico1.pregunta16(num: integer; o: char; num2: integer): integer;
+var i:integer;
+begin
+     case o of
+     '+':i:=num+num2;
+     '-':i:=num-num2;
+     '*':i:=num*num2;
+     '/':i:=num div num2;
+     end;
+     result:=i;
+end;
+
+function Practico1.uniRom(num: integer): string;
+var
+cad:string;
+begin
+cad:='';
+   case num of
+   0: cad:='';
+   1: cad:='I';
+   2: cad:='II';
+   3: cad:='III';
+   4: cad:='IV';
+   5: cad:='V';
+   6: cad:='VI';
+   7: cad:='VII';
+   8: cad:='VIII';
+   9: cad:='IX';
+   end;
+  result:=cad;
+end;
+
+function Practico1.decRom(num: integer): string;
+var
+cad,uni:string;
+begin
+cad:='';
+uni:= uniRom(num mod 10);
+   case (num div 10) of
+   1: cad:='X';
+   2: cad:='XX';
+   3: cad:='XXX';
+   4: cad:='XL';
+   5: cad:='L';
+   6: cad:='LX';
+   7: cad:='LXX';
+   8: cad:='LXXX';
+   9: cad:='XC';
+   end;
+  result:=cad+uni;
+end;
+
+function Practico1.centRom(num: integer): string;
+var
+cad,dec:string;
+begin
+cad:='';
+dec:= decRom(num mod 100);
+   case (num div 100) of
+   1: cad:='C';
+   2: cad:='CC';
+   3: cad:='CCC';
+   4: cad:='CD';
+   5: cad:='D';
+   6: cad:='DC';
+   7: cad:='DCC';
+   8: cad:='DCCC';
+   9: cad:='CM';
+   end;
+  result:=cad+dec;
+end;
+
+function Practico1.milRom(num: integer): string;
+var
+cad,cent:string;
+begin
+cad:='';
+cent:= centRom(num mod 1000);
+   case (num div 1000) of
+   1: cad:='M';
+   2: cad:='MM';
+   3: cad:='MMM';
+   end;
+  result:=cad+cent;
+end;
+
+function Practico1.pregunta18(num: integer): string;
+var
+cad:string;
+begin
+cad:='';
+   case num of
+   0..9: cad:=uniRom(num);
+   10..99: cad:=decRom(num);
+   100..999: cad:=centRom(num);
+   1000..3999: cad:=milRom(num);
+   end;
+   result:=cad;
+end;
+
+end.                          
