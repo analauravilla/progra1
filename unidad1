@@ -25,12 +25,17 @@ procedure pregunta14(c1:char;c2:char;c3:char;c4:char);
 //procedure pregunta15(num:integer;
 function pregunta16(num:integer;o:char;num2:integer):integer;
 procedure pregunta17(c1:char;c2:char;o:char;c3:char;c4:char);
+function pregunta18(num:integer):string;
+procedure pregunta21(num:integer);
+procedure pregunta22(num:integer);
+function pregunta23(num:integer;num2:integer):integer;
+function pregunta24(num:integer;num2:integer):integer;
 
 function uniRom(num:integer):string;
 function decRom(num:integer):string;
 function centRom(num:integer):string;
 function milRom(num:integer):string;
-function pregunta18(num:integer):string;
+
 
 end;
 implementation
@@ -366,5 +371,106 @@ cad:='';
    end;
    result:=cad;
 end;
+
+procedure Practico1.pregunta21(num: integer);
+          var i,j,max,max2:integer;
+          begin
+          max:=0;
+          i:=num;
+          j:=0;
+          while i>0 do
+                begin
+                     j:=i mod 10;
+                     if j>max then
+                        begin
+                        max:=j;
+                        end;
+                     i:=i div 10;
+                end;
+          max2:=0;
+          i:=num;
+          j:=0;
+          while i>0 do
+                begin
+                     j:=i mod 10;
+                     if (j>max2) and (j<>max) then
+                        begin
+                        max2:=j;
+                        end;
+                     i:=i div 10;
+                end;
+               writeln(max);
+               writeln(max2);
+          end;
+
+procedure Practico1.pregunta22(num: integer);
+          var i,j,min,min2:integer;
+                    begin
+                    min:=789874;
+                    i:=num;
+                    j:=0;
+                    while i>0 do
+                          begin
+                               j:=i mod 10;
+                               if j<min then
+                                  begin
+                                  min:=j;
+                                  end;
+                               i:=i div 10;
+                          end;
+                    min2:=789845;
+                    i:=num;
+                    j:=0;
+                    while i>0 do
+                          begin
+                               j:=i mod 10;
+                               if (j<min2) and (j<>min) then
+                                  begin
+                                  min2:=j;
+                                  end;
+                               i:=i div 10;
+                          end;
+                         writeln(min);
+                         writeln(min2);
+                    end;
+
+function Practico1.pregunta23(num: integer; num2: integer): integer;
+         var i,j,c:integer;
+         begin
+            j:=num;
+            c:=0;
+            i:=num2;
+            while i>0 do
+                  begin
+                       i:= i div 10;
+                       c:=c+1;
+                  end;
+            while c>0 do
+                  begin
+                       j:=j*10;
+                       c:=c-1;
+                  end;
+            result:=j+num2;
+         end;
+
+function Practico1.pregunta24(num: integer; num2: integer): integer;
+         var i,j,k,l:integer;
+         begin
+         i:=num;
+         k:=num2;
+         while i>0 do
+               begin
+                    j:=i mod 10;
+                    i:= i div 10;
+               end;
+         while k>0 do
+               begin
+                    l:=k mod 10;
+                    k:= k div 10;
+               end;
+         while
+
+
+         end;
 
 end.
