@@ -18,7 +18,10 @@ procedure pregunta5(num:integer);
 function pregunta6(num:integer;num2:integer):integer;
 function pregunta7(num:integer;num2:integer):integer;
 function pregunta8(num:integer;num2:integer):integer;
+function pregunta9(num:integer;num2:integer):integer;
 function pregunta10(num:integer;num2:integer):integer;
+procedure pregunta11(num:integer);
+procedure pregunta13(c1:char;c2:char;c3:char);
 function pregunta16(num:integer;o:char;num2:integer):integer;
 function uniRom(num:integer):string;
 function decRom(num:integer):string;
@@ -157,6 +160,38 @@ function Practico1.pregunta8(num: integer; num2: integer): integer;
 
          end;
 
+function Practico1.pregunta9(num: integer; num2: integer): integer;
+         var
+         i,j,k,c:integer;
+         begin
+         c:=0;
+         k:=num2;
+         i:=1;
+         j:=num;
+         if j<0 then
+            begin
+                 j:=j*-1;
+                 c:=c+1;
+            end;
+         if k<0 then
+            begin
+                 k:=k*-1;
+                 c:=c+1;
+            end;
+
+         while j> k do
+               begin
+               j:=j-k;
+               i:=i+1;
+               end;
+         if c=1 then
+            begin
+                 i:=i*-1;
+            end;
+         result:=i;
+
+         end;
+
 function Practico1.pregunta10(num: integer; num2: integer): integer;
 var
 i,mult:integer;
@@ -170,6 +205,27 @@ i:=i+1;
 end;
 result:=mult;
 end;
+
+procedure Practico1.pregunta11(num: integer);
+          var i,k,l:integer;
+          begin
+          i:=num;
+          k:=i+i;
+          l:=i+i+i;
+          writeln(k);
+          writeln(l);
+          end;
+
+procedure Practico1.pregunta13(c1: char; c2: char; c3: char);
+           var i:integer;
+          begin
+            i:=ord(c1)-48;
+            i:=i*10;
+            i:=i+ord(c2)-48;
+            i:=i*10;
+            i:=i+ord(c3)-48;
+            writeln(i);
+          end;
 
 function Practico1.pregunta16(num: integer; o: char; num2: integer): integer;
 var i:integer;
@@ -271,4 +327,5 @@ cad:='';
    result:=cad;
 end;
 
-end.               
+end.
+          
