@@ -1,4 +1,3 @@
-
 unit Unit1;
 {$mode objfpc}{$H+}
 interface
@@ -22,7 +21,11 @@ function pregunta9(num:integer;num2:integer):integer;
 function pregunta10(num:integer;num2:integer):integer;
 procedure pregunta11(num:integer);
 procedure pregunta13(c1:char;c2:char;c3:char);
+procedure pregunta14(c1:char;c2:char;c3:char;c4:char);
+//procedure pregunta15(num:integer;
 function pregunta16(num:integer;o:char;num2:integer):integer;
+procedure pregunta17(c1:char;c2:char;o:char;c3:char;c4:char);
+
 function uniRom(num:integer):string;
 function decRom(num:integer):string;
 function centRom(num:integer):string;
@@ -227,6 +230,24 @@ procedure Practico1.pregunta13(c1: char; c2: char; c3: char);
             writeln(i);
           end;
 
+procedure Practico1.pregunta14(c1: char; c2: char; c3: char; c4: char);
+          var i:integer;
+          begin
+          i:=ord(c2)-48;
+          i:=i*10;
+          i:=i+ord(c3)-48;
+          i:=i*10;
+          i:=i+ord(c4)-48;
+          if c1 = '+' then
+             begin
+                  write('+');
+             end
+          else write('-');
+
+          writeln(i);
+
+          end;
+
 function Practico1.pregunta16(num: integer; o: char; num2: integer): integer;
 var i:integer;
 begin
@@ -238,6 +259,25 @@ begin
      end;
      result:=i;
 end;
+
+procedure Practico1.pregunta17(c1: char; c2: char; o: char; c3: char; c4: char);
+          var k,i,j:integer;
+          begin
+           i:=ord(c1)-48;
+           i:=i*10;
+           i:=i+ord(c2)-48;
+           j:=ord(c3)-48;
+           j:=j*10;
+           j:=j+ord(c4)-48;
+           case o of
+           '+':k:=i+j;
+           '-':k:=i-j;
+           '*':k:=i*j;
+           '/':k:=i div j;
+           end;
+           writeln(k);
+
+          end;
 
 function Practico1.uniRom(num: integer): string;
 var
@@ -328,4 +368,3 @@ cad:='';
 end;
 
 end.
-          
