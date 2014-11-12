@@ -113,5 +113,22 @@ if a = 18 then
 
    writeln(n.pregunta18(v));
 end;
+if a = 21 then
+   begin
+   readln(v);
+
+   n.pregunta21(v);
+end;
+if a = 22 then
+   begin
+   readln(v);
+
+   n.pregunta22(v);
+end;
+if a = 23 then
+   begin
+   readln(v,u);
+   writeln(n.pregunta23(v,u));
+end;
 readln();
 end.
