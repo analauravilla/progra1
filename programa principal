@@ -130,5 +130,10 @@ if a = 23 then
    readln(v,u);
    writeln(n.pregunta23(v,u));
 end;
+if a = 24 then
+   begin
+   readln(v,u);
+   n.pregunta24(v,u);
+end;
 readln();
 end.
