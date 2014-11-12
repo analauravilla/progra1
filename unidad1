@@ -29,7 +29,7 @@ function pregunta18(num:integer):string;
 procedure pregunta21(num:integer);
 procedure pregunta22(num:integer);
 function pregunta23(num:integer;num2:integer):integer;
-function pregunta24(num:integer;num2:integer):integer;
+procedure pregunta24(num:integer;num2:integer);
 
 function uniRom(num:integer):string;
 function decRom(num:integer):string;
@@ -453,24 +453,38 @@ function Practico1.pregunta23(num: integer; num2: integer): integer;
             result:=j+num2;
          end;
 
-function Practico1.pregunta24(num: integer; num2: integer): integer;
-         var i,j,k,l:integer;
+procedure Practico1.pregunta24(num: integer; num2: integer);
+         var i,j,k,l,c,n:integer;
          begin
          i:=num;
          k:=num2;
+         j:=0;
+         l:=0;
+         c:=0;
+         n:=0;
          while i>0 do
                begin
-                    j:=i mod 10;
-                    i:= i div 10;
+                    j:=j+i mod 10;
+                    j:=j*10;
+                    i:=i div 10;
+
                end;
          while k>0 do
                begin
-                    l:=k mod 10;
-                    k:= k div 10;
-               end;
-         while
+                    l:=l+k mod 10;
+                    l:=l*10;
+                    k:=k div 10;
 
+               end;
+         while (l>0) and (j>0) do
+               begin
+                 write(j mod 10);
+                 write(l mod 10);
+                 j:=j div 10;
+                 l:=l div 10;
+               end;
 
          end;
 
 end.
+                    
