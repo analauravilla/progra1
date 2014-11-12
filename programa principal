@@ -9,7 +9,7 @@ var
 n:Practico1;
 a:integer;
 v,u:integer;
-o,c1,c2,c3:char;
+o,c1,c2,c3,c4:char;
 begin
 n.create();
 writeln('Bienvenido a la resolucion del practico 1 de Programacion I.-');
@@ -82,12 +82,29 @@ readln(c2);
 readln(c3);
 n.pregunta13(c1,c2,c3);
    end;
+if a = 14 then
+   begin
+readln(c1);
+readln(c2);
+readln(c3);
+readln(c4);
+n.pregunta14(c1,c2,c3,c4);
+   end;
 if a = 16 then
    begin
 readln(v);
 readln(o);
 readln(u);
 writeln(n.pregunta16(v,o,u));
+   end;
+if a = 17 then
+   begin
+readln(c1);
+readln(c2);
+readln(o);
+readln(c3);
+readln(c4);
+n.pregunta17(c1,c2,o,c3,c4);
    end;
 
 if a = 18 then
@@ -97,4 +114,4 @@ if a = 18 then
    writeln(n.pregunta18(v));
 end;
 readln();
-end.               
+end.
